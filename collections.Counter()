@@ -1,0 +1,32 @@
+from collections import Counter
+NumOfShoes = int(input("Number of shoes: "))
+ShoeSize = Counter(map(int,input("Shoe Sizes available: ").split()))
+# print(Counter(ShoeSize))
+# Inventory = Counter(ShoeSize)
+# print("Inventory = " + str(Inventory))
+
+MoneyEarned = []
+NumOfCustomers = int(input("Number of Customers: "))
+for i in range(NumOfCustomers):
+    size, price = map(int,input("Input Size and Price: ").split())
+#             size, price = input("Input Size and Price: ").split()
+#             print("size = " + size)
+#             print(price)
+    if ShoeSize[size] > 0:
+        MoneyEarned.append(price)
+        ShoeSize.subtract(Counter([size]))
+
+
+#             if size in ShoeSize.keys():
+#                 MoneyEarned.append(int(price))
+#                 Inventory[size] -= 1
+#                 print("MoneyEarned = " + str(MoneyEarned))
+#                 print("Inventory = " + str(Inventory))
+#                 if Inventory[size] <= 0:
+#                     del (Inventory[size])
+#             else:
+#                 MoneyEarned.append(0)
+    
+print(sum(MoneyEarned))
+
+# https://www.hackerrank.com/challenges/collections-counter/problem
